@@ -42,7 +42,7 @@ namespace DatingApp.API.Controllers
 
             return StatusCode(201);
         }
-
+       
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
@@ -72,7 +72,6 @@ namespace DatingApp.API.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-
             return Ok(new {
                 token = tokenHandler.WriteToken(token)
             });
